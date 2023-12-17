@@ -1,0 +1,53 @@
+.close_modal_wrapper {
+
+  visibility:hidden;
+  position:fixed;
+  left:0px;
+  top:0px;
+  display:flex;
+  height:100%;
+  width:100%;
+  align-items: center;
+  justify-content: center;
+  opacity:0;
+  background-color: rgba(0, 0, 0, 0.25);
+  transition:
+  opacity 0.12s linear,
+  visible 0.12s linear;
+  transition:opacity 0.12s linear, visible 0.12s linear;
+
+}
+
+.close_modal_wrapper > .modal_container{
+   
+    visibility:hidden;
+    margin-top: 4rem;
+     max-height: 100vh;
+     transform: translateY(-4rem);
+     border-radius: 0.2rem;
+     background-color: #fff;
+     opacity:1;
+}
+
+.close_modal_wrapper.open_modal_wrapper {
+  
+   visibility:visible;
+   opacity:1;
+ 
+}
+
+
+
+
+
+ .open_modal_wrapper > .modal_container {
+   border-radius: 4px;
+    overflow: hidden;
+    visibility:visible;
+     opacity:1;
+     transform: translateY(0); 
+  }
+
+
+
+

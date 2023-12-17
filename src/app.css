@@ -1,0 +1,133 @@
+.app{
+  height:100vh;
+}
+
+.page-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+}
+
+.container{
+  display:flex;
+  flex-direction:column;
+  width:55%;
+  min-height:600px;
+ 
+}
+.top-div{
+  height:4rem;
+  border: 1px solid #E7F1E9;
+  border-bottom:none;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+}
+
+._wysiwyg-div{
+  flex:1;
+  border: 1px solid #E7F1E9;
+  border-bottom:none;
+
+}
+.count-div{
+  height:2.7rem;
+  background-color:#fff;
+   border-bottom-left-radius:4px;
+  border-bottom-right-radius:4px;
+  border: 1px solid #E7F1E9;
+  font-size:1rem;
+ padding-top:.8rem;
+  text-align:right;
+}
+
+.input-wrapper{
+    position:relative;
+    display:inline-block;
+}
+
+.input-wrapper:hover{
+  cursor:pointer;
+}
+
+
+.input{
+    border: transparent;
+    height: 4.5rem;
+    width: 45rem;
+    background: transparent;
+    font-size: 1.8rem;
+    padding-left:1rem;
+}
+
+.input:focus{
+  outline:none;
+  
+}
+
+
+.input + span{
+  position: absolute;
+  top: 50%;
+  left: 2.8%;
+  transform: translate(0%, -50%);
+  opacity:1;
+  visibility:visible;
+  transition: all .1s linear;
+   font-weight:bold;
+   font-size: 1.85rem;
+   
+}
+
+
+.input:focus + span{
+  opacity:0;
+  visibility:hidden
+  
+}
+
+
+.input-text{
+   font-weight:bold;
+   text-transform: capitalize;
+}
+
+
+// Embed style
+.upload-section {
+  width:65.9rem;
+  padding: 1.8rem 2.5rem;
+  background:#fff;
+  font-size:1.6rem;
+}
+
+.upload-section > h4{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+}
+
+.upload-section > p{
+  color:#343337;
+  margin-top: .5rem;
+}
+
+.button.close_btn{
+  background:transparent;
+  margin-top:0px;
+  margin-bottom:0px;
+  font-size:1.4rem;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+

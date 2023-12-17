@@ -1,0 +1,11 @@
+.button{
+   padding: 1rem 1.5rem;
+   border: transparent;
+   font-size:1.6rem;
+   border-radius: 4px;
+   font-weight:bold;
+   margin-top: 1rem;
+    margin-bottom: 1rem;
+   display:inline-block;
+
+}
