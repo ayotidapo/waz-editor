@@ -4,7 +4,7 @@ import {ReactComponent as Camera} from '../../assets/camera.svg'
 
 import {ReactComponent as Plus} from '../../assets/plus.svg'
 import Button from '../Button'
-
+import './dropdown.css'
 
 interface Props{
     toggleModal:(view:string)=>void

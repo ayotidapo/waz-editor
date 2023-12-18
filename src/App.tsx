@@ -105,6 +105,12 @@ const App:React.FC = () => {
     );
   }
 
+  const isStateEmpty = () => {
+    const contentState = editorState.getCurrentContent();
+    const text = contentState.getPlainText().trim(); 
+    return text === '';
+  };
+
   return (
     <main className="app">
       <Modal open={view !== ''} toggleModal={toggleModal}>
@@ -156,13 +162,15 @@ const App:React.FC = () => {
                 
                 }}
               />
-              <div className='plus-wrapper'>
-                <span className='plus-container'>
-                  <DropDownBtn toggleModal={toggleModal}/>
-                </span>
-              </div>
-               
-             </div>
+
+              {!isStateEmpty() && 
+                <div className='plus-wrapper'>
+                  <span className='plus-container'>
+                    <DropDownBtn toggleModal={toggleModal}/>
+                  </span>
+                </div>
+              }                             
+            </div>
           </div>
           <div className='count-div'>
             0/1000 words

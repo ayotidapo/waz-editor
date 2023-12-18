@@ -154,53 +154,6 @@ input[type="text"]:focus{
   margin:1rem 0rem;
 }
 
-.button.action-plus{
-    position:relative;
-    width: 32px;
-    height: 32px;
-    padding: 0.4rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: var(--border-grey);
-}
-
-
-
-.button.action-plus > .drop-menu_{
-  position:absolute;
-  top: 36px;
-  left: -2px;
-  min-width: 1rem;
-  border-radius: 0.4rem;
-  overflow:hidden;
-  display:none;
-  
-
-}
-
-.button.action-plus:focus > .drop-menu_{
-  position:absolute;
-  top: 36px;
-  left: -2px;
-  display:block;
-}
-
-
-
-
-.plus-wrapper{
-  position: absolute;
-  bottom: -4rem;
-  
-}
-.plus-container{
-  display:inline-block;
-  padding-left:1.4rem;
-  
-}
-
 
 .editor-class{
   padding-left:1.4rem;
