@@ -110,9 +110,9 @@ const App:React.FC = () => {
   };
 
   const onPost =()=>{
+    if(!title) return alert('Please enter a title for your post')
     setPost(true)
-    convertContentToHTML()
-   
+    convertContentToHTML()  
   }
 
    if(post) return(
