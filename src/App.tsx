@@ -54,23 +54,10 @@ const App:React.FC = () => {
   }
  
   const insertEmbed = (url:any,type:string) => {
-    const contentState = editorState.getCurrentContent();
-    let contentStateWithEntity;
+    const contentState = editorState.getCurrentContent(); 
     console.log(url,type)
-    if(type==='image'){
-        contentStateWithEntity = contentState.createEntity(
-        'IMAGE', 
-        'IMMUTABLE',
-        { src: url,height:'250px',width:'100%' },
-      );
-    }else if(type==='video'){
-      contentStateWithEntity = contentState.createEntity(
-      'youtube', 
-      'MUTABLE',
-      { src: url,height:'250px',width:'100%' },
-    );
-    }
-     contentStateWithEntity = contentState.createEntity(
+ 
+     const contentStateWithEntity = contentState.createEntity(
       'IMAGE', 
       'IMMUTABLE',
       { src: url,height:'250px',width:'100%' },
@@ -91,7 +78,7 @@ const App:React.FC = () => {
     const contentStateWithEntity = contentState.createEntity(
       "EMBEDDED_LINK",
       "IMMUTABLE",
-      { src: urlValue }
+      { src: urlValue, width:'100%'  }
     );
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
     const newEditorState = EditorState.set(editorState, {

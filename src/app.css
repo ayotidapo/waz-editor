@@ -14,7 +14,7 @@
   flex-direction:column;
   width:55%;
   min-height:600px;
- 
+  margin-bottom: 2rem;
 }
 .top-div{
   height:4rem;
