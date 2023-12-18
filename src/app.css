@@ -263,9 +263,19 @@ input[type="text"]:focus{
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(10deg);
   }
 }
 
 
 
+.mock_loader {
+ display: inline-block;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: App-logo-spin infinite 0.8s linear;
+    color: green;
+    font-size: 1rem;
+}

@@ -5,24 +5,30 @@ import './embed-image.css'
 
 interface Props{
     toggleModal:(view:string)=>void;
-    uploadImageFn:(file:any)=>void;
+    previewImgFn:(file:any)=>void;
+    embedImage:()=>void;
+    previewImg?:string | ArrayBuffer | null | undefined
 }
 
 const EmbedImage:React.FC<Props> = (props) => {
-const {toggleModal,uploadImageFn} = props
+const {previewImg,toggleModal,previewImgFn,embedImage} = props
   return (
     <section className='upload-section'>
           <h4>Embed <Button className='close_btn'><Close  onClick={()=>toggleModal('')}/></Button></h4>
           <p>Upload Image</p>
           <small>FILE UPLOAD</small>
           <div className='upload-area'>
-           <label className='upload-btn hand'>
-            <input type='file' style={{display:'none'}} onChange={e=>uploadImageFn(e.target.files?.[0])}/>
-            Import Image from Device
-           </label>
+           {previewImg ? 
+            <img src={previewImg as string || ''} alt='preview-img' width={200} height={125}/> : 
+            <label className='upload-btn hand'>
+                    <input type='file' style={{display:'none'}} onChange={e=>previewImgFn(e.target.files?.[0])}/>
+                    Import Image from Device
+            </label>
+           }
+          
           </div>
           <div style={{marginTop:'.5rem'}}>
-            <Button className='primary-btn'>Embed</Button>
+            <Button className='primary-btn' onClick={embedImage}>Embed</Button>
             <Button className='default_btn'>Cancel</Button>
           </div>
     </section>
