@@ -10,6 +10,7 @@ import EmbedVideo from './components/EmbedVideo';
 import DraftEditor from './components/Editor';
 
 import './app.css';
+import Button from './components/Button';
 
 
 const App:React.FC = () => {
@@ -109,10 +110,8 @@ const App:React.FC = () => {
 
       </Modal>
       <section className='page-wrapper'>
-
         <div className='container'>
-          <div className='top-div'></div>
-        
+          <div className='top-div'></div>        
           <div className='_wysiwyg-div'>  
             <label className='input-wrapper'>
               <input type='text' className='topic-input input-text' 
@@ -136,7 +135,8 @@ const App:React.FC = () => {
           <div className='count-div'>
             0/1000 words
           </div>
-        </div>           
+          <Button className='post_btn'>Post</Button>  
+        </div>         
       </section>
     </main>
   );
