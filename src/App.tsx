@@ -98,7 +98,7 @@ const App:React.FC = () => {
                 editorClassName="editor-class"
                 toolbarClassName="toolbar-class"
                 toolbar={{
-                  options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'link', 'embedded', 'image',],
+                  options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'link', 'embedded'],
                    inline: {
                     inDropdown: true,           
                      options: ['bold', 'italic', 'underline', 'strikethrough', 'monospace', 'superscript', 'subscript'],                

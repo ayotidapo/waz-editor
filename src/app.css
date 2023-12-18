@@ -270,12 +270,12 @@ input[type="text"]:focus{
 
 
 .mock_loader {
- display: inline-block;
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: App-logo-spin infinite 0.8s linear;
-    color: green;
-    font-size: 1rem;
+  display: inline-block;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: App-logo-spin infinite 0.8s linear;
+  color: green;
+  font-size: 1rem;
 }
