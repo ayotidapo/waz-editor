@@ -1,13 +1,14 @@
 import axios from 'axios'
 import React, { useState } from 'react';
-import { convertToRaw,EditorState,AtomicBlockUtils} from 'draft-js';
-import { Editor  } from "react-draft-wysiwyg";
+import { EditorState,AtomicBlockUtils} from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Modal from './components/Modal'
 import EmbedImage from './components/EmbedImage';
 import DropDownBtn from './components/DropdownBtn';
 import EmbedSocial from './components/EmbedSocial';
 import EmbedVideo from './components/EmbedVideo';
+import DraftEditor from './components/Editor';
+
 import './app.css';
 
 
@@ -24,7 +25,7 @@ const App:React.FC = () => {
     setView(view)
   }
 
-  async function previewImgFn(file:any) {
+  async function previewImgFn(file: File) {
      const reader = new FileReader();   
      reader.readAsDataURL(file);
      reader.onload = (readerEvent) => {
@@ -135,34 +136,7 @@ const App:React.FC = () => {
             </label>
            
             <div className='_editor-container'>
-              <Editor   
-                editorState={editorState}
-                onEditorStateChange={editorState => {
-                  setEditorState(editorState);
-                   const contentState = editorState.getCurrentContent();
-                   console.log(convertToRaw(contentState), 100, contentState);               
-                  }                  
-                }
-                wrapperClassName="wrapper-class"
-                editorClassName="editor-class"
-                toolbarClassName="toolbar-class"
-                toolbar={{
-                  options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'link', 'embedded'],
-                   inline: {
-                    inDropdown: true,           
-                     options: ['bold', 'italic', 'underline', 'strikethrough', 'monospace', 'superscript', 'subscript'],                
-                  },
-                   blockType: {
-                    inDropdown: true,
-                    options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Blockquote', 'Code','indent','outdent'],
-                    className: undefined,
-                    component: undefined,
-                    dropdownClassName: undefined,
-                  },
-                
-                }}
-              />
-
+              <DraftEditor editorState={editorState} setEditorState={setEditorState}/>
               {!isStateEmpty() && 
                 <div className='plus-wrapper'>
                   <span className='plus-container'>
