@@ -1,0 +1,17 @@
+.input-label{
+  margin-top:.8rem;
+  display:block;
+}
+.input-label > small{
+  font-size:1.2rem;
+}
+
+.input-x, select {
+  border:1px solid var(--border-grey);
+  height:3.5rem;
+  width:100%;
+  background: var(--bg-color);
+  border-radius:0.4rem;
+  margin:.5rem 0rem;
+  padding:0rem 1.2rem;
+}

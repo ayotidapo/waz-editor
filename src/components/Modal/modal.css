@@ -1,7 +1,7 @@
 .close_modal_wrapper {
-
-  visibility:hidden;
   position:fixed;
+  z-index:200;
+  visibility:hidden;
   left:0px;
   top:0px;
   display:flex;

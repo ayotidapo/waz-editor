@@ -3,10 +3,15 @@ import Button from '../Button'
 import {ReactComponent as Close} from '../../assets/times.svg'
 import './embed-image.css'
 
-const EmbedImage = () => {
+interface Props{
+    toggleModal:(view:string)=>void
+}
+
+const EmbedImage:React.FC<Props> = (props) => {
+const {toggleModal} = props
   return (
     <section className='upload-section'>
-          <h4>Embed <Button className='close_btn'><Close/></Button></h4>
+          <h4>Embed <Button className='close_btn'><Close  onClick={()=>toggleModal('')}/></Button></h4>
           <p>Upload Image</p>
           <small>FILE UPLOAD</small>
           <div className='upload-area'>

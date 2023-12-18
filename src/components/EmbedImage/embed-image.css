@@ -1,15 +1,6 @@
-.upload-section {
-  width:65.9rem;
-padding: 1.8rem 2.5rem;
-  background:#fff;
-  font-size:1.6rem;
-}
 
-.upload-section > h4{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-}
+
+
 
 .upload-section > p{
   color:#343337;
@@ -35,9 +26,3 @@ padding: 1.8rem 2.5rem;
   border-radius:4px;
 }
 
-.button.close_btn{
-  background:transparent;
-  margin-top:0px;
-  margin-bottom:0px;
-  font-size:1.4rem;
-}
