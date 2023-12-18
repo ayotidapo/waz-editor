@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react';
-import { EditorState,AtomicBlockUtils} from 'draft-js';
+import { EditorState,AtomicBlockUtils,convertToRaw} from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Modal from './components/Modal'
 import EmbedImage from './components/EmbedImage';
@@ -20,7 +21,8 @@ const App:React.FC = () => {
   const [editorState, setEditorState]=useState(EditorState.createEmpty())
   const [loading,setLoading]=useState<boolean>(false)
   const [title, setTitle]=useState<string>('')
-  
+  const [htmlContent, setHtmlContent] = useState('');
+  const [post, setPost] = useState(false);
 
   const toggleModal=(view:string)=>{
     setView(view)
@@ -100,6 +102,27 @@ const App:React.FC = () => {
     return text === '';
   };
 
+  const convertContentToHTML = () => {
+    const contentState = editorState.getCurrentContent();
+    const rawContentState = convertToRaw(contentState);
+    const contentAsHTML = draftToHtml(rawContentState);
+    setHtmlContent(contentAsHTML);
+  };
+
+  const onPost =()=>{
+    setPost(true)
+    convertContentToHTML()
+   
+  }
+
+   if(post) return(
+    <div style={{textAlign:'center', paddingTop:'2rem'}}>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+        <Button className='post_btn' onClick={()=>setPost(false)}>Back</Button>  
+      </div>  
+    )
+
   return (
     <main className="app">
       <Modal open={view !== ''} toggleModal={toggleModal}>
@@ -135,14 +158,15 @@ const App:React.FC = () => {
           <div className='count-div'>
             0/1000 words
           </div>
-          <Button className='post_btn'>Post</Button>  
-        </div>         
+          <Button className='post_btn' onClick={onPost}>Post</Button>  
+        </div> 
       </section>
     </main>
   );
 }
 
 export default App;
+
 
 
 

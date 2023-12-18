@@ -49,6 +49,7 @@
   background:var(--primary-color);
   color: #fff;
   font-weight:lighter;
+  margin-top: 1.5rem;
 }
 
 .input-wrapper{
