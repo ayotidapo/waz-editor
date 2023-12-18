@@ -2,14 +2,16 @@
 
 interface Props{
    title:string;
-   options?:{label:string; value:string}[]
+   name:string;
+   options?:{label:string; value:string}[];
+   onChange:(e:React.ChangeEvent<HTMLInputElement>)=>void;
 }
 const Input:React.FC<Props> = (props:any) => {
-  const {title,options} =props
+  const {title,options,name,onChange} =props
   return (
     <label className='input-label'>
         <small>{title || 'VIDEO PROVIDER'}</small><br/>
-        <select>
+        <select name={name} onChange={onChange}>
          {
           options.map((option:{label:string; value:string},i:number) => 
           

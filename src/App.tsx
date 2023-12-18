@@ -17,6 +17,8 @@ const App:React.FC = () => {
   const [previewImg,setPreviewImg]=useState<string | ArrayBuffer | null | undefined>('')
   const [editorState, setEditorState]=useState(EditorState.createEmpty())
   const [loading,setLoading]=useState<boolean>(false)
+  const [title, setTitle]=useState<string>('')
+  
 
   const toggleModal=(view:string)=>{
     setView(view)
@@ -42,21 +44,37 @@ const App:React.FC = () => {
         setView('');
         setPreviewImg('')
         console.log({response})
-        const newEditorState=insertImage(editorState,response?.data?.url);
+        const newEditorState=insertEmbed(response?.data?.url,'image');
         setEditorState(newEditorState)
         setLoading(false)
       }catch{
         setLoading(false)
       }   
   }
-
-  const insertImage = (editorState:any,url:any) => {
+ 
+  const insertEmbed = (url:any,type:string) => {
     const contentState = editorState.getCurrentContent();
-    const contentStateWithEntity = contentState.createEntity(
-      'IMAGE',
-      'IMMUTABLE',
-      { src: url,height:'200px',width:'200px' },
+    let contentStateWithEntity;
+    console.log(url,type)
+    if(type==='image'){
+        contentStateWithEntity = contentState.createEntity(
+        'IMAGE', 
+        'IMMUTABLE',
+        { src: url,height:'250px',width:'100%' },
+      );
+    }else if(type==='video'){
+      contentStateWithEntity = contentState.createEntity(
+      'youtube', 
+      'MUTABLE',
+      { src: url,height:'250px',width:'100%' },
     );
+    }
+     contentStateWithEntity = contentState.createEntity(
+      'IMAGE', 
+      'IMMUTABLE',
+      { src: url,height:'250px',width:'100%' },
+    );
+
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
     const newEditorState = EditorState.set(
       editorState,
@@ -66,12 +84,33 @@ const App:React.FC = () => {
     return AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ' ');
   };
 
+
+  const embedVideo=(urlType:string = 'video',urlValue:string='https://www.youtube.com/watch?v=uJnf0mKswVA')=>{
+    const contentState = editorState.getCurrentContent();
+    const contentStateWithEntity = contentState.createEntity(
+      "EMBEDDED_LINK",
+      "IMMUTABLE",
+      { src: urlValue }
+    );
+    const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+    const newEditorState = EditorState.set(editorState, {
+      currentContent: contentStateWithEntity
+    });
+    setEditorState(
+       AtomicBlockUtils.insertAtomicBlock(
+          newEditorState,
+          entityKey,
+          " "
+        ),      
+    );
+  }
+
   return (
     <main className="app">
       <Modal open={view !== ''} toggleModal={toggleModal}>
        {loading && <span className='mock_loader'>embeding...</span>}
         {view === 'embedImage' && <EmbedImage toggleModal={toggleModal} previewImgFn={previewImgFn}  embedImage={uploadImage} previewImg={previewImg}/> }    
-        {view === 'embedVideo' && <EmbedVideo toggleModal={toggleModal}/>}
+        {view === 'embedVideo' && <EmbedVideo toggleModal={toggleModal} insertEmbed={embedVideo}/>}
         {view === 'embedSocial' && <EmbedSocial toggleModal={toggleModal}/>}
 
       </Modal>
@@ -82,7 +121,11 @@ const App:React.FC = () => {
         
           <div className='_wysiwyg-div'>  
             <label className='input-wrapper'>
-                <input type='text' className='topic-input input-text' placeholder='Add Post title' autoFocus/>
+              <input type='text' className='topic-input input-text' 
+                onChange={(e)=>setTitle(e.target.value)} 
+                value={title}
+                placeholder='Add Post title' autoFocus
+              />
             </label>
            
             <div className='_editor-container'>
@@ -113,7 +156,12 @@ const App:React.FC = () => {
                 
                 }}
               />
-               <span className='plus-container'><DropDownBtn toggleModal={toggleModal}/></span>
+              <div className='plus-wrapper'>
+                <span className='plus-container'>
+                  <DropDownBtn toggleModal={toggleModal}/>
+                </span>
+              </div>
+               
              </div>
           </div>
           <div className='count-div'>
