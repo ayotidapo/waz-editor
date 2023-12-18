@@ -4,11 +4,12 @@ import {ReactComponent as Close} from '../../assets/times.svg'
 import './embed-image.css'
 
 interface Props{
-    toggleModal:(view:string)=>void
+    toggleModal:(view:string)=>void;
+    uploadImageFn:(file:any)=>void;
 }
 
 const EmbedImage:React.FC<Props> = (props) => {
-const {toggleModal} = props
+const {toggleModal,uploadImageFn} = props
   return (
     <section className='upload-section'>
           <h4>Embed <Button className='close_btn'><Close  onClick={()=>toggleModal('')}/></Button></h4>
@@ -16,7 +17,7 @@ const {toggleModal} = props
           <small>FILE UPLOAD</small>
           <div className='upload-area'>
            <label className='upload-btn hand'>
-            <input type='file' style={{display:'none'}}/>
+            <input type='file' style={{display:'none'}} onChange={e=>uploadImageFn(e.target.files?.[0])}/>
             Import Image from Device
            </label>
           </div>

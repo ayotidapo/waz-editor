@@ -1,0 +1,83 @@
+{
+    "blocks": [
+        {
+            "key": "bf44n",
+            "text": "first text",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "engcm",
+            "text": " ",
+            "type": "atomic",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [
+                {
+                    "offset": 0,
+                    "length": 1,
+                    "key": 0
+                }
+            ],
+            "data": {}
+        },
+        {
+            "key": "2rc7",
+            "text": "second text",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        },
+        {
+            "key": "1bjns",
+            "text": " ",
+            "type": "atomic",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [
+                {
+                    "offset": 0,
+                    "length": 1,
+                    "key": 1
+                }
+            ],
+            "data": {}
+        },
+        {
+            "key": "31d0a",
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        }
+    ],
+    "entityMap": {
+        "0": {
+            "type": "IMAGE",
+            "mutability": "MUTABLE",
+            "data": {
+                "src": "http://res.cloudinary.com/oladapo/image/upload/v1702895416/test2-folder/abdagtlclqqjcjwbyz6x.jpg",
+                "height": "auto",
+                "width": "auto",
+                "alt": ""
+            }
+        },
+        "1": {
+            "type": "IMAGE",
+            "mutability": "MUTABLE",
+            "data": {
+                "src": "http://res.cloudinary.com/oladapo/image/upload/v1702895451/test2-folder/j7cu1fs22stjwymr0lvk.png",
+                "height": "20px",
+                "width": "20px",
+                "alt": ""
+            }
+        }
+    }
+}
