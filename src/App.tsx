@@ -99,7 +99,8 @@ const App:React.FC = () => {
   const isStateEmpty = () => {
     const contentState = editorState.getCurrentContent();
     const text = contentState.getPlainText().trim(); 
-    return text === '';
+    
+    return text;
   };
 
   const convertContentToHTML = () => {
@@ -109,11 +110,14 @@ const App:React.FC = () => {
     setHtmlContent(contentAsHTML);
   };
 
+  const text = isStateEmpty()
+
   const onPost =()=>{
-    if(!title) return alert('Please enter a title for your post')
+    if(!(title && text)) return alert('Please enter a title and its content to make a post')
     setPost(true)
     convertContentToHTML()  
   }
+
 
    if(post) return(
     <div style={{textAlign:'center', paddingTop:'2rem'}}>
@@ -146,7 +150,7 @@ const App:React.FC = () => {
            
             <div className='_editor-container'>
               <DraftEditor editorState={editorState} setEditorState={setEditorState}/>
-              {!isStateEmpty() && 
+              {text && 
                 <div className='plus-wrapper'>
                   <span className='plus-container'>
                     <DropDownBtn toggleModal={toggleModal}/>
@@ -156,7 +160,7 @@ const App:React.FC = () => {
             </div>
           </div>
           <div className='count-div'>
-            0/1000 words
+           {`${1000 - text?.length}/1000 words`}
           </div>
           <Button className='post_btn' onClick={onPost}>Post</Button>  
         </div> 

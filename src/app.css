@@ -16,6 +16,14 @@
   width:55%;
   min-height:600px;
   margin-bottom: 2rem;
+
+  @media only screen and (max-width: 1024px) {
+    width:75%
+  }
+
+  @media only screen and (max-width: 768px) {
+    width:95%
+  }
 }
 .top-div{
   height:4rem;
@@ -54,7 +62,7 @@
 
 .input-wrapper{
   position:relative;
-  display:inline-block;
+  display:flex;
   margin: 1rem 0rem;
 }
 
@@ -64,12 +72,12 @@
 
 
 .topic-input{
-    border: transparent;
-    height: 4.5rem;
-    width: 45rem;
-    background: transparent;
-    font-size: 2.5rem;
-    padding-left:1rem;
+  border: transparent;
+  height: 4.5rem;
+  width: 100%;
+  background: transparent;
+  font-size: 2.5rem;
+  padding:0rem 1rem;
 }
 .topic-input:focus{
     border: transparent;
@@ -108,12 +116,6 @@ input[type="text"]:focus{
 }
 
 
-.upload-section {
-  width:65.9rem;
-  padding: 1.8rem 2.5rem;
-  background:#fff;
-  font-size:1.6rem;
-}
 
 .button.close_btn{
   background:transparent;
@@ -173,71 +175,10 @@ input[type="text"]:focus{
 }
 
 
-
-.ul-embed{
-  background-color:#fff;
-  padding-left:0px;
-  width:32rem;
-  padding-top:1rem;
-  padding-bottom:1rem;
-  display:inline-block;
-  margin:0px;
-}
-
-.ul-embed svg{
-  width:20px;
-  margin-right:1rem;
-}
-
-.ul-embed li{
-  display: flex;
-  height:4.8rem;
-  width:100%;
-  align-items:center;
-  font-size: 1.4rem;
-  padding:1rem;
-  
-}
-.ul-embed li:hover{
- 
-  background: var(--border-grey);
-
-}
-
-.ul-embed li:first-child{
-  font-size:1.2rem;
-  font-weight:lighter;
-  height: 2.8rem;
-
-}
-
-.ul-embed li:first-child:hover{
-  background:#fff;
-
-}
-
-.ul-embed li span{
-  flex:1;
-  text-align: left;
-}
-.ul-embed small{
-  font-size: 1.2rem;
-  font-weight:lighter;
-  color:var(--brand-black);
-  width: 100%;
-}
-
-
-
-
 ._editor-container{
   position:relative;
-  /* max-height: 500px;
-  overflow: scroll; */
 
 }
-
-
 
 @keyframes App-logo-spin {
   from {
@@ -247,8 +188,6 @@ input[type="text"]:focus{
     transform: rotate(10deg);
   }
 }
-
-
 
 .mock_loader {
   display: inline-block;
@@ -260,3 +199,5 @@ input[type="text"]:focus{
   color: green;
   font-size: 1rem;
 }
+
+

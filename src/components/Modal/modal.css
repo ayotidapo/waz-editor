@@ -19,14 +19,13 @@
 }
 
 .close_modal_wrapper > .modal_container{
-   
-    visibility:hidden;
-    margin-top: 4rem;
-     max-height: 100vh;
-     transform: translateY(-4rem);
-     border-radius: 0.2rem;
-     background-color: #fff;
-     opacity:1;
+   visibility:hidden;
+   margin-top: 4rem;
+   max-height: 100vh;
+   transform: translateY(-4rem);
+   border-radius: 0.2rem;
+   background-color: #fff;
+   opacity:1;
 }
 
 .close_modal_wrapper.open_modal_wrapper {
@@ -37,16 +36,18 @@
 }
 
 
-
-
-
- .open_modal_wrapper > .modal_container {
+.open_modal_wrapper > .modal_container {
    border-radius: 4px;
-    overflow: hidden;
-    visibility:visible;
-     opacity:1;
-     transform: translateY(0); 
-  }
+   overflow: hidden;
+   visibility:visible;
+   opacity:1;
+   transform: translateY(0); 
+   
+   @media only screen and (max-width: 670px) {
+     width: calc(100% - 5rem);
+   }
+   
+}
 
 
 

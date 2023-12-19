@@ -1,10 +1,21 @@
 
 
+.upload-section {
+  width:65.9rem;
+  padding: 1.8rem 2.5rem;
+  background:#fff;
+  font-size:1.6rem;
+
+  @media only screen and (max-width: 670px) {
+    width: 100%
+  }
+}
 
 
 .upload-section > p{
   color:#343337;
   margin-top: .5rem;
+
 }
 
 .upload-area{
