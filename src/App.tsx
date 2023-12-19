@@ -47,7 +47,6 @@ const App:React.FC = () => {
         const response = await axios.post(`https://api.cloudinary.com/v1_1/oladapo/upload`, data);
         setView('');
         setPreviewImg('')
-        console.log({response})
         const newEditorState=insertEmbed(response?.data?.url,'image');
         setEditorState(newEditorState)
         setLoading(false)
@@ -58,8 +57,6 @@ const App:React.FC = () => {
  
   const insertEmbed = (url:any,type:string) => {
     const contentState = editorState.getCurrentContent(); 
-    console.log(url,type)
- 
      const contentStateWithEntity = contentState.createEntity(
       'IMAGE', 
       'IMMUTABLE',
@@ -113,7 +110,7 @@ const App:React.FC = () => {
   const text = isStateEmpty()
 
   const onPost =()=>{
-    if(!(title && text)) return alert('Title and content are required to publish your content')
+    if(!(title && text)) return alert('Title and content are required to publish your post')
     setPost(true)
     convertContentToHTML()  
   }

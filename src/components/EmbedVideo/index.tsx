@@ -36,7 +36,6 @@ const EmbedVideo:React.FC<Props> = (props) => {
   const onEmbed =()=>{
     insertEmbed(videoProvider,videoUrl);
     toggleModal('')
-    console.log(inputs)
   }
 
   const onChange=(e:React.ChangeEvent<HTMLInputElement>)=>{

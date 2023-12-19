@@ -18,12 +18,13 @@ const DraftEditor:React.FC<Props> = (props) => {
         onEditorStateChange={editorState => {
             setEditorState(editorState);
             const contentState = editorState.getCurrentContent();
-            console.log(convertToRaw(contentState), 100, contentState);               
+            //console.log(convertToRaw(contentState), 100, contentState);               
             }                  
         }
         wrapperClassName="wrapper-class"
         editorClassName="editor-class"
         toolbarClassName="toolbar-class"
+        placeholder='Add content'
         toolbar={{
             options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'link', 'embedded'],
             inline: {

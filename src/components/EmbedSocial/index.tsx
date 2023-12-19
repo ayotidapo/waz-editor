@@ -54,7 +54,6 @@ const EmbedSocial:React.FC<Props> = (props) => {
 
   const onEmbed = () =>{
     toggleModal('');
-    console.log(isEnabled,inputs)
   }
 
   return (
