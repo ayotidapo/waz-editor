@@ -34,7 +34,7 @@ const EmbedVideo:React.FC<Props> = (props) => {
   const {videoProvider, videoUrl} = inputs
 
   const onEmbed =()=>{
-    insertEmbed('video','https://www.youtube.com/watch?v=t12a6z090AU');
+    insertEmbed(videoProvider,videoUrl);
     toggleModal('')
     console.log(inputs)
   }

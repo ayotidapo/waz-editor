@@ -76,7 +76,7 @@ const App:React.FC = () => {
   };
 
 
-  const embedVideo=(urlType:string = 'video',urlValue:string='https://www.youtube.com/watch?v=uJnf0mKswVA')=>{
+  const embedVideo=(_urlType:string = 'video',urlValue:string)=>{
     const contentState = editorState.getCurrentContent();
     const contentStateWithEntity = contentState.createEntity(
       "EMBEDDED_LINK",
