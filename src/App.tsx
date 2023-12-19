@@ -160,7 +160,7 @@ const App:React.FC = () => {
             </div>
           </div>
           <div className='count-div'>
-           {`${1000 - text?.length}/1000 words`}
+           {text?.length}/1000 words
           </div>
           <Button className='post_btn' onClick={onPost}>Post</Button>  
         </div> 
