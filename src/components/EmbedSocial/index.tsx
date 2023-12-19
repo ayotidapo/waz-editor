@@ -75,7 +75,7 @@ const EmbedSocial:React.FC<Props> = (props) => {
       </div>
       <div style={{marginTop:'.5rem'}}>
         <Button className='primary-btn' onClick={onEmbed}>Embed</Button>
-        <Button className='default_btn'>Cancel</Button>
+        <Button className='default_btn' onClick={()=>toggleModal('')}>Cancel</Button>
       </div>
     </section>
   )

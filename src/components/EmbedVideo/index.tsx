@@ -39,8 +39,7 @@ const EmbedVideo:React.FC<Props> = (props) => {
     console.log(inputs)
   }
 
-
-   const onChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+  const onChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
       const {name,value} = e.target
    
         setInputs(inputs=>({
@@ -49,21 +48,15 @@ const EmbedVideo:React.FC<Props> = (props) => {
       )
    }
 
-
-
   return (
     <section className='upload-section'>
       <h4>Embed <Button className='close_btn'><Close  onClick={()=>toggleModal('')}/></Button></h4>
 
-      <Input type='select' title='VIDEO PROVIDER' name='videoProvider' value={videoProvider} options={options} onChange={onChange}/>
-      
-      <Input type='text' title='URL' name='videoUrl' value={videoUrl} onChange={onChange}/>
-
-       
-      
+      <Input type='select' title='VIDEO PROVIDER' name='videoProvider' value={videoProvider} options={options} onChange={onChange}/>     
+      <Input type='text' title='URL' name='videoUrl' value={videoUrl} onChange={onChange}/>  
       <div style={{marginTop:'.5rem'}}>
         <Button className='primary-btn' onClick={onEmbed}>Embed</Button>
-        <Button className='default_btn'>Cancel</Button>
+        <Button className='default_btn' onClick={()=>toggleModal('')}>Cancel</Button>
       </div>
     </section>
   )
