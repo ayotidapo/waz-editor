@@ -113,7 +113,7 @@ const App:React.FC = () => {
   const text = isStateEmpty()
 
   const onPost =()=>{
-    if(!(title && text)) return alert('Please enter a title and its content to make a post')
+    if(!(title && text)) return alert('Title and content are required to publish your content')
     setPost(true)
     convertContentToHTML()  
   }

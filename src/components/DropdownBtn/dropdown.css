@@ -21,7 +21,6 @@
   overflow:hidden;
   display:none;
   
-
 }
 
 .button.action-plus:focus > .drop-menu_{
@@ -30,8 +29,6 @@
   left: -2px;
   display:block;
 }
-
-
 
 
 .plus-wrapper{
